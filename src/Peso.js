@@ -1,10 +1,11 @@
 import React from 'react';
 
 export default class Peso extends React.Component {
-
   render () {
     return (
-      <p>{this.props.peso}</p>
+      <div className="peso">
+        {this.props.peso / 10 } Kg
+      </div>
     )
   }
 }

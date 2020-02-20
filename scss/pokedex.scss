@@ -1,3 +1,27 @@
+$bg-color-red: red;
+
+$text-color-black: black;
+$text-color-white: white;
+
+$type-dark-color: rgb(4, 7, 6);
+$type-bug-color:rgb(59, 153, 80);
+$type-dragon-color:rgb(84, 158, 169);
+$type-electric-color:rgb(251, 251, 114);
+$type-fairy-color:rgb(234, 19, 105);
+$type-fighting-color:rgb(239, 97, 56);
+$type-fire-color:rgb(253, 76, 90);
+$type-flying-color:rgb(147, 178, 199);
+$type-ghost-color:rgb(144, 103, 144);
+$type-grass-color:rgb(39, 203, 79);
+$type-ground-color:rgb(110, 73, 31);
+$type-ice-color:rgb(216, 239, 251);
+$type-normal-color:rgb(202, 152, 167);
+$type-poison-color:rgb(155, 105, 217);
+$type-psychic-color:rgb(248, 28, 145);
+$type-rock-color:rgb(139, 62, 33);
+$type-steel-color:rgb(66, 189, 148);
+$type-water-color:rgb(134, 168, 252);
+
 html, body, #root {
     width: 100%;
     margin: 0;
@@ -6,17 +30,20 @@ html, body, #root {
   
   body {
     font: 14px "Century Gothic", Futura, sans-serif;
+    width: 100%;
   }
   
   .principal {
     width: 100%;
     height: 100%;
+    border: 1px solid black;
   }
   
+
   header {
     width: 100%;
     height: 15%;
-    background-color: red;
+    background-color: $bg-color-red;
   
     img {
       display: block;
@@ -27,22 +54,26 @@ html, body, #root {
   nav {
     width: 100%;
     height: 20px;
-    margin-bottom: 10px;
   }
   
   .busqueda {
     display: block;
     margin: auto;
-    margin-top: 7px;
+    margin-top: 1%;
     border-radius: 20px;
+    border: 2px double #cccccc;
+    padding: 1px;
+    text-align: center;
   }
   
   #pokemons {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin: 0 auto;
+    margin-top: 2%;
     width: 100%;
-    background-color: rgb(90, 83, 83, 0.8);
+    // background-color: rgb(90, 83, 83, 0.8);
+    background-color: white;
   }
   
   .cargando {
@@ -52,10 +83,7 @@ html, body, #root {
   .pokemon {
     display: block;
     margin: 5% auto;
-    background-repeat: no-repeat;
-    background-size: 60%;
-    background-position-x: 85%;
-    background-position-y: 0%;
+    background-color: rgba(0,0,0, 0.9);
     width: 90%;
     border-radius: 50px;
     border: 2px solid white;
@@ -69,13 +97,13 @@ html, body, #root {
   }
   
   p {
-    color: white;
+    color: $text-color-white;
   }
   
   .nombre, .peso {
-    background: red;
+    background: $bg-color-red;
     border: 2px solid white;
-    color: white;
+    color: $text-color-white;
     width: 20%;
     text-align: center;
     border-radius: 20px;
@@ -84,120 +112,104 @@ html, body, #root {
   }
   
   .habilidad {
-    background: red;
+    background: $bg-color-red;
     border: 2px solid white;
-    color: white;
+    color: $text-color-white;
     padding: 2%;
     border-radius: 50px;
     margin: 0 auto;
     margin-bottom: 2px;
     width: 70%;
+    justify-self: center;
+    align-self: center;
   }
   
   .tipo {
     background-image: none;
     border: 2px solid white;
-    color: white;
+    color: $text-color-white;
     width: 70%;
     border-radius: 50px;
     margin: 0 auto;
     margin-bottom: 2px;
+
+    justify-self: center;
+    align-self: center;
   }
   
   .bug {
-    background-color: rgb(59, 153, 80);
+    background-color: $type-bug-color;
   }
   
   .dark {
-    background-color: rgb(4, 7, 6);
+    background-color: $type-dark-color;
   }
   
   .dragon {
-    background-color: rgb(84, 158, 169);
+    background-color: $type-dragon-color;
   }
   
   .electric {
-    background-color: rgb(251, 251, 114);
-    color: black;
+    background-color: $type-electric-color;
+    color: $text-color-black;
   }
   
   .fairy {
-    background-color: rgb(234, 19, 105);
+    background-color: $type-fairy-color;
   }
   
   .fighting {
-    background-color: var(--type-fighting-color);
+    background-color: $type-fighting-color;
   }
   
   .fire {
-    background: rgb(253, 76, 90);
+    background: $type-fire-color;
   }
   
   .flying {
-    background-color: rgb(147, 178, 199);
-    color: black;
+    background-color: $type-flying-color;
+    color: $text-color-black;
   }
   
   .ghost {
-    background-color: rgb(144, 103, 144);
+    background-color: $type-ghost-color;
   }
   
   .grass {
-    background-color: rgb(39, 203, 79);
+    background-color: $type-grass-color
   }
   
   .ground {
-    background-color: rgb(110, 73, 31);
+    background-color: $type-ground-color;
   }
   
   .ice {
-    background-color: rgb(216, 239, 251);
-    color: black;
+    background-color: $type-ice-color;
+    color: $text-color-black;
   }
   
   .normal {
-    background-color: rgb(202, 152, 167);
+    background-color: $type-normal-color;
   }
   
   .poison {
-    background-color: rgb(155, 105, 217);
+    background-color: $type-poison-color;
   }
   
   .psychic {
-    background-color: rgb(248, 28, 145);
+    background-color: $type-psychic-color;
   }
   
   .rock {
-    background-color: rgb(139, 62, 33);
+    background-color: $type-rock-color;
   }
   
   .steel {
-    background-color: rgb(66, 189, 148);
+    background-color: $type-steel-color;
   }
   
   .water {
-    background-color: rgb(134, 168, 252);
-  }
-  
-  root {
-    --type-dark-color:rgb(4, 7, 6);
-    --type-bug-color:rgb(59, 153, 80);
-    --type-dragon-color:rgb(84, 158, 169);
-    --type-electric-color:rgb(251, 251, 114);
-    --type-fairy-color:rgb(234, 19, 105);
-    --type-fighting-color:rgb(239, 97, 56);
-    --type-fire-color:rgb(253, 76, 90);
-    --type-flying-color:rgb(147, 178, 199);
-    --type-ghost-color:rgb(144, 103, 144);
-    --type-grass-color:rgb(39, 203, 79);
-    --type-ground-color:rgb(110, 73, 31);
-    --type-ice-color:rgb(216, 239, 251);
-    --type-normal-color:rgb(202, 152, 167);
-    --type-poison-color:rgb(155, 105, 217);
-    --type-psychic-color:rgb(248, 28, 145);
-    --type-rock-color:rgb(139, 62, 33);
-    --type-steel-color:rgb(66, 189, 148);
-    --type-water-color:rgb(134, 168, 252);
+    background-color: $type-water-color;
   }
   
   .ventanaPokemon {
@@ -206,11 +218,12 @@ html, body, #root {
     grid-template-columns: repeat(6, 1fr);
     position: absolute;
     width: 50%;
-    background-color: red;
+    background-color: $bg-color-red;
   }
   
   footer {
     width: 100%;
+    height: 100px;
     background-color: black;
-    color: white;
+    color: $text-color-white;
   }

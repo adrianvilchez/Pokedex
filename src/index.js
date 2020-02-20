@@ -1,37 +1,20 @@
-/*import React from 'react';
-import ReactDOM from 'react-dom';
-
-import './index.css';
-
-import Cabecera from './Cabecera.js';
-import PokeApi from './PokeApi.js';
-import Pie from './Pie.js';
-
-
-class App extends React.Component {
-  render() {
-     return (
-      <div>
-        <PokeApi/> 
-        <Pie/>
-      </div>
-     );
-  }
-}
-// ========================================
-
-ReactDOM.render(
-  <App />, document.getElementById('root')
-);*/
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './pokedex.css';
 
-import cargando from './imagenes/cargando.gif';
-import pokeball from './imagenes/pokeball.png';
+// Importamos los componentes que formarán la web
+// import Cabecera from './Cabecera.js';
+// import Menu from './Menu.js';
 
-import classnames from 'classnames';
+// import PokeApi from './PokeApi.js';
+import Carga from './Carga.js';
+import IdPokemon from './IdPokemon.js';
+import ImagenPokemon from './ImagenPokemon.js';
+import Nombre from './Nombre.js';
+import Peso from './Peso.js';
+import Tipo from './Tipo.js';
+import Habilidad from './Habilidad.js';
+import Pie from './Pie.js';
 
 class PokeApi extends React.Component {
   constructor(props) {
@@ -74,7 +57,6 @@ class PokeApi extends React.Component {
     this.setState({
       pokemonsFiltrados
     })
-    
   }
   
   datosPokemon(url) {
@@ -91,7 +73,6 @@ class PokeApi extends React.Component {
 
         // cargando: true,
     });
-    
     
    /*setTimeout(() => {
       console.log('this is:', this.state.pokemon );
@@ -118,14 +99,11 @@ class PokeApi extends React.Component {
         (result) => {
 
           result.results.forEach(poke => {
-
-            
             pokemonImagen.push(this.datosPokemon(poke.url));
-            
           });
 
           Promise.all(pokemonImagen).then(resp => {
-            
+          
             this.setState({
               isLoaded: true,
   
@@ -137,8 +115,6 @@ class PokeApi extends React.Component {
           })
         }
       )
-      
-
       /*fetch(pokemonAtributo)
       .then(res => res.json())
       .then(
@@ -146,8 +122,6 @@ class PokeApi extends React.Component {
           console.log(result);
           
         })*/
-
-        
   }
 
   render() {
@@ -160,9 +134,9 @@ class PokeApi extends React.Component {
          <Cabecera/>
          <Menu onChange={this.datosInput} />
 
-         <Carga/>
-        
-         
+         <hr />
+
+         <Carga/>  
          <Pie/>
        </div>
        );
@@ -171,6 +145,9 @@ class PokeApi extends React.Component {
         <div className="principal">
         <Cabecera/>
         <Menu onChange={this.datosInput} />
+
+        <hr />
+
         <div id='pokemons'>
           {pokemonsFiltrados.map(pokemon => (
 
@@ -240,92 +217,10 @@ class Cabecera extends React.Component {
   }
 }
 
-class ImagenPokemon extends React.Component {
-
-  render () {
-
-    return (
-      <div className="imagenPokemon">
-        <img src={this.props.imagen || pokeball} alt={this.props.nombre} />
-      </div>
-    )
-  }
-}
-
-class Carga extends React.Component {
-
-  render () {
-
-    return (
-      <div className="cargando">
-        <img src={cargando} alt="" />
-      </div>
-    )
-  }
-}
-
-class IdPokemon extends React.Component {
-
-  render () {
-    return (
-      <div className="id">
-        <p>#{this.props.id}</p>
-      </div>
-    )
-  }
-}
-
-class Nombre extends React.Component {
-
-  render () {
-    return (
-      <div className="nombre">
-        {this.props.nombre}
-      </div>
-    )
-  }
-}
-
-class Peso extends React.Component {
-
-  render () {
-    return (
-      <div className="peso">
-        {this.props.peso}
-      </div>
-    )
-  }
-}
-
-class Tipo extends React.Component {
-
-  render () {
-    return (
-      
-      <div className={classnames("tipo", this.props.tipo)}>{this.props.tipo}</div>
-      
-    );
-  }
-}
-
-
-class Habilidad extends React.Component {
-
-  render () {
-
-    return (
-      <div className="habilidad">{this.props.habilidad}</div>
-      
-    )
-  }
-}
-
 class Menu extends React.Component {
-
   handleChange = (e) => {
     //console.log(e.target.value);
     this.props.onChange(e.target.value);
-    
   }
 
   render() {
@@ -333,16 +228,6 @@ class Menu extends React.Component {
       <nav>
         <input className="busqueda" type="search" name="buscar" id="" placeholder="Buscar Pokemon..." onChange={this.handleChange}/>
       </nav>
-     );
-  }
-}
-
-class Pie extends React.Component {
-  render() {
-     return (
-      <footer>
-        sdsad
-      </footer>
      );
   }
 }

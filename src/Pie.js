@@ -4,7 +4,7 @@ export default class Pie extends React.Component {
     render() {
        return (
         <footer>
-          sdsad
+          ©opyright Adrián Vílchez. avilchez758@gmail.com.
         </footer>
        );
     }
