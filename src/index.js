@@ -14,6 +14,10 @@ import Nombre from './Nombre.js';
 import Peso from './Peso.js';
 import Tipo from './Tipo.js';
 import Habilidad from './Habilidad.js';
+
+import Ficha from './Ficha.js';
+
+
 import Pie from './Pie.js';
 
 class PokeApi extends React.Component {
@@ -73,18 +77,30 @@ class PokeApi extends React.Component {
 
         // cargando: true,
     });
-    
-   /*setTimeout(() => {
-      console.log('this is:', this.state.pokemon );
 
-      this.setState({
-        habilidades: this.state.pokemon.moves
-      });
+    setTimeout(() => {
 
-      console.log(this.state.habilidades[2]);
-      
+      console.log(this.state.pokemon);
 
-    }, 1000); */
+      let fichaPokemon = document.getElementById('fichaPokemon');
+      ReactDOM.unmountComponentAtNode(fichaPokemon);
+
+      let ficha = <Ficha
+          tipos = {this.state.pokemon.types}
+
+          movimientos = {this.state.pokemon.moves}
+
+          peso = {this.state.pokemon.weight}
+          imagen = {this.state.pokemon.sprites.front_default}
+          nombre = {this.state.pokemon.name}
+          data-id = {this.state.pokemon.id}
+          id = {this.state.pokemon.id}
+          onDoubleClick = {(i) => this.handleClick(this.state.pokemon.id)}
+          key = {this.state.pokemon.id}
+      />
+        
+      ReactDOM.render(ficha, fichaPokemon)
+    }, 500);
   }
 
   componentDidMount() {
@@ -148,11 +164,12 @@ class PokeApi extends React.Component {
 
         <hr />
 
-        <div id='pokemons'>
-          {pokemonsFiltrados.map(pokemon => (
+        <div id='fichaPokemon'></div>
 
-            <div data-id={pokemon.id} id={pokemon.name} className='pokemon' onDoubleClick={(i) => this.handleClick(pokemon.id)} key={pokemon.id}>
-              
+        <div id='pokemons'>
+        
+          {pokemonsFiltrados.map(pokemon => (
+            <div data-id={pokemon.id} id={pokemon.id} className='pokemon' onDoubleClick={(i) => this.handleClick(pokemon.id)} key={pokemon.id}>
               <IdPokemon id = {pokemon.id}/>
               <hr />
 
@@ -161,47 +178,11 @@ class PokeApi extends React.Component {
               <hr />
               <p>Nombre:</p>
               <Nombre nombre = {pokemon.name}/>
-
-              {console.log(pokemon)}
-
-              <p>Peso:</p>
-              <Peso peso =  {pokemon.weight}/>
-
-              <hr />
-              <p>Tipo:</p>
-              <hr />
-              <div className="tipos">
-                {pokemon.types.map(tip => (
-                  // <Tipo tipo =  {item.type.name}/>
-                  <Tipo key={tip.type.name} tipo = {tip.type.name}/>
-                ))}
-              </div>
-
-              <hr />
-              <p>Habilidades:</p>
-              <hr />
-              <div className="habilidades">
-                {pokemon.moves.map(function(mov, i) {
-                  if (i < 6) {
-                    return <Habilidad key = {i} habilidad = {mov.move.name}/>
-                  }
-                })}
-              </div>
             </div>
           ))}
-
-          {/* <div className='ventanaPokemon'>
-            {habilidades.map(habilidad => (
-              <div key={habilidad.move.name}>
-                <p>{habilidad.move.name}</p>
-              </div>
-            ))}
-          </div> */}
-          
         </div>
-        
         <Pie/>
-      </div>
+        </div>
       );
     }
   }
