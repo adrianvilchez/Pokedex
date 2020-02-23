@@ -49,13 +49,16 @@ html, body, #root {
   }
 
   .cerrarFicha {
-    width:26px;
-    height:26px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
-    position:absolute;
+    position: absolute;
     top: 5%;
     right: 10%;
-    cursor:pointer;
+    cursor: pointer;
+    border: 2px solid rgb(28, 160, 16);
+    color: $bg-color-red;
+    font-weight: bolder;
   }
   
 
@@ -105,8 +108,9 @@ html, body, #root {
     background-color: rgba(0,0,0, 0.9);
     width: 90%;
     border-radius: 50px;
-    border: 2px solid white;
+    border: 2px solid rgb(28, 160, 16);
     text-align: center;
+    padding-bottom: 2%;
   }
   
   .tipos, .habilidades {
@@ -245,5 +249,5 @@ html, body, #root {
 
     background-color: black;
     color: $text-color-white;
-    bottom: 0;
+    height: 21vh;
   }

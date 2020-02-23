@@ -31,6 +31,9 @@ body {
   top: 5%;
   right: 10%;
   cursor: pointer;
+  border: 2px solid #1ca010;
+  color: red;
+  font-weight: bolder;
 }
 
 header {
@@ -77,8 +80,9 @@ nav {
   background-color: rgba(0, 0, 0, 0.9);
   width: 90%;
   border-radius: 50px;
-  border: 2px solid white;
+  border: 2px solid #1ca010;
   text-align: center;
+  padding-bottom: 2%;
 }
 
 .tipos, .habilidades {
@@ -215,7 +219,7 @@ footer {
   width: 100%;
   background-color: black;
   color: white;
-  bottom: 0;
+  height: 21vh;
 }
 
 /*# sourceMappingURL=pokedex.css.map */
